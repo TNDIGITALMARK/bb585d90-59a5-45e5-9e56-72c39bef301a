@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Syncro Commerce - Unified E-Commerce Management",
+  description: "Manage your AliExpress, Amazon, and Shopify stores from one powerful dashboard. Streamline product syncing, order fulfillment, and multi-platform operations.",
 };
 
 export default function RootLayout({

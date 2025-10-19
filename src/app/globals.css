@@ -5,44 +5,63 @@ All colors MUST be HSL.
 */
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  /* E-Commerce Platform Design System - Extracted from design reference */
 
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  /* Base Colors */
+  --background: 220 18% 97%;  /* Light gray background #F3F4F6 */
+  --foreground: 217 33% 17%;  /* Dark text #1F2937 */
+
+  --card: 0 0% 100%;  /* White cards */
+  --card-foreground: 217 33% 17%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover-foreground: 217 33% 17%;
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  /* Primary Blue - Navy brand color from design */
+  --primary: 222 47% 11%;  /* #1E40AF - Navy blue */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  /* Secondary Orange - CTA buttons from design */
+  --secondary: 14 100% 60%;  /* #FF6B35 - Orange */
+  --secondary-foreground: 0 0% 100%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --muted: 220 18% 97%;
+  --muted-foreground: 220 9% 46%;  /* Gray text #6B7280 */
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  /* Accent Purple - Platform icons from design */
+  --accent: 262 52% 47%;  /* #7C3AED - Purple */
+  --accent-foreground: 0 0% 100%;
+
+  /* Success Green - Charts from design */
+  --success: 158 64% 52%;  /* #10B981 */
+  --success-foreground: 0 0% 100%;
+
+  /* Light Blue - Platform icons from design */
+  --info: 213 94% 68%;  /* #60A5FA */
+  --info-foreground: 0 0% 100%;
 
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 0 0% 100%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  --border: 220 13% 91%;  /* Light border */
+  --input: 220 13% 91%;
+  --ring: 222 47% 11%;
 
-  --radius: 0.5rem;
+  --radius: 0.75rem;  /* Rounded corners from design */
 
-  --sidebar-background: 0 0% 98%;
-  --sidebar-foreground: 240 5.3% 26.1%;
-  --sidebar-primary: 240 5.9% 10%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 240 4.8% 95.9%;
-  --sidebar-accent-foreground: 240 5.9% 10%;
+  /* Platform-specific colors for visual identification */
+  --platform-aliexpress: 14 100% 60%;  /* Orange */
+  --platform-amazon: 213 94% 68%;  /* Light Blue */
+  --platform-shopify: 158 64% 52%;  /* Green */
+
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 217 33% 17%;
+  --sidebar-primary: 222 47% 11%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 18% 97%;
+  --sidebar-accent-foreground: 217 33% 17%;
   --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  --sidebar-ring: 222 47% 11%;
 }
 
 .dark {
@@ -87,35 +106,41 @@ All colors MUST be HSL.
   --container: 1400px;
   --container-center: true;
   --container-padding: 2rem;
-  
+
   /* Color System */
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-  
+
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  
+
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
-  
+
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
-  
+
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
-  
+
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
-  
+
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+
+  --color-info: hsl(var(--info));
+  --color-info-foreground: hsl(var(--info-foreground));
+
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
-  
+
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
-  
+
   --color-sidebar: hsl(var(--sidebar-background));
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
   --color-sidebar-primary: hsl(var(--sidebar-primary));
@@ -124,12 +149,17 @@ All colors MUST be HSL.
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
-  
+
+  /* Platform Colors */
+  --color-platform-aliexpress: hsl(var(--platform-aliexpress));
+  --color-platform-amazon: hsl(var(--platform-amazon));
+  --color-platform-shopify: hsl(var(--platform-shopify));
+
   /* Border Radius */
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-  
+
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -160,4 +190,85 @@ All colors MUST be HSL.
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: var(--font-geist-sans);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: hsl(var(--foreground));
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.875rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.625rem;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Component Defaults */
+button {
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* Custom Utilities */
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.platform-badge.aliexpress {
+  background-color: hsl(var(--platform-aliexpress) / 0.1);
+  color: hsl(var(--platform-aliexpress));
+}
+
+.platform-badge.amazon {
+  background-color: hsl(var(--platform-amazon) / 0.1);
+  color: hsl(var(--platform-amazon));
+}
+
+.platform-badge.shopify {
+  background-color: hsl(var(--platform-shopify) / 0.1);
+  color: hsl(var(--platform-shopify));
+}
+
+/* Card Shadow Enhancement */
+.card-shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.card-shadow-hover {
+  transition: box-shadow 0.2s ease;
+}
+
+.card-shadow-hover:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
