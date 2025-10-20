@@ -1,67 +1,91 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 :root {
-  /* E-Commerce Platform Design System - Extracted from design reference */
+  /* E-Commerce Store Design System */
 
-  /* Base Colors */
-  --background: 220 18% 97%;  /* Light gray background #F3F4F6 */
-  --foreground: 217 33% 17%;  /* Dark text #1F2937 */
+  /* Font Variables */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Geist Mono', 'SF Mono', 'Consolas', monospace;
+
+  /* Base Colors - Modern E-commerce Palette */
+  --background: 0 0% 100%;  /* Pure white for clean store feel */
+  --foreground: 222 47% 11%;  /* Deep navy for text */
 
   --card: 0 0% 100%;  /* White cards */
-  --card-foreground: 217 33% 17%;
+  --card-foreground: 222 47% 11%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 217 33% 17%;
+  --popover-foreground: 222 47% 11%;
 
-  /* Primary Blue - Navy brand color from design */
-  --primary: 222 47% 11%;  /* #1E40AF - Navy blue */
+  /* Primary - Sophisticated Navy for store brand */
+  --primary: 222 47% 11%;  /* #0F172A - Deep navy */
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary Orange - CTA buttons from design */
-  --secondary: 14 100% 60%;  /* #FF6B35 - Orange */
+  /* Secondary - Warm Coral for CTAs and accents */
+  --secondary: 14 90% 60%;  /* #F97316 - Vibrant coral */
   --secondary-foreground: 0 0% 100%;
 
-  --muted: 220 18% 97%;
-  --muted-foreground: 220 9% 46%;  /* Gray text #6B7280 */
+  --muted: 220 14% 96%;  /* Very light gray for backgrounds */
+  --muted-foreground: 220 9% 46%;  /* Medium gray text */
 
-  /* Accent Purple - Platform icons from design */
-  --accent: 262 52% 47%;  /* #7C3AED - Purple */
-  --accent-foreground: 0 0% 100%;
+  /* Accent - Premium Gold for highlights */
+  --accent: 38 92% 50%;  /* #F59E0B - Gold accent */
+  --accent-foreground: 222 47% 11%;
 
-  /* Success Green - Charts from design */
+  /* Success Green */
   --success: 158 64% 52%;  /* #10B981 */
   --success-foreground: 0 0% 100%;
 
-  /* Light Blue - Platform icons from design */
+  /* Info Blue */
   --info: 213 94% 68%;  /* #60A5FA */
   --info-foreground: 0 0% 100%;
 
+  /* Error/Warning Colors */
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 222 47% 11%;
 
+  /* UI Elements */
   --border: 220 13% 91%;  /* Light border */
   --input: 220 13% 91%;
-  --ring: 222 47% 11%;
+  --ring: 14 90% 60%;  /* Secondary color for focus rings */
 
-  --radius: 0.75rem;  /* Rounded corners from design */
+  --radius: 0.5rem;  /* Rounded corners */
+
+  /* E-commerce specific colors */
+  --price-color: 0 0% 15%;  /* Dark for prices */
+  --sale-color: 0 72% 51%;  /* Red for sale prices */
+  --badge-new: 158 64% 52%;  /* Green for "New" badges */
+  --badge-sale: 0 84% 60%;  /* Red for "Sale" badges */
+  --badge-featured: 262 80% 65%;  /* Purple for "Featured" */
 
   /* Platform-specific colors for visual identification */
   --platform-aliexpress: 14 100% 60%;  /* Orange */
   --platform-amazon: 213 94% 68%;  /* Light Blue */
   --platform-shopify: 158 64% 52%;  /* Green */
 
+  /* Sidebar (admin panel) */
   --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 217 33% 17%;
+  --sidebar-foreground: 222 47% 11%;
   --sidebar-primary: 222 47% 11%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 220 18% 97%;
-  --sidebar-accent-foreground: 217 33% 17%;
+  --sidebar-accent-foreground: 222 47% 11%;
   --sidebar-border: 220 13% 91%;
   --sidebar-ring: 222 47% 11%;
+
+  /* Shadow system */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .dark {
@@ -183,55 +207,141 @@ All colors MUST be HSL.
   }
 }
 
-* {
+/* CSS Reset & Normalization */
+*, *::before, *::after {
+  box-sizing: border-box;
   border-color: hsl(var(--border));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* Typography Hierarchy */
+/* Typography Hierarchy - E-commerce focused */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   color: hsl(var(--foreground));
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
+  font-weight: 800;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   margin-bottom: 0.875rem;
+  font-weight: 700;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   margin-bottom: 0.75rem;
+  font-weight: 700;
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   margin-bottom: 0.625rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 1rem;
+  font-family: var(--font-primary);
 }
 
-/* Component Defaults */
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--secondary));
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Component Defaults - Enhanced for e-commerce */
 button {
-  font-family: inherit;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 input, select, textarea {
-  font-family: inherit;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.1);
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul, ol {
+  list-style-position: inside;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background-color: hsl(var(--muted));
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
 }
 
 /* Custom Utilities */
@@ -271,4 +381,99 @@ input, select, textarea {
 
 .card-shadow-hover:hover {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* E-commerce Store Utilities */
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.price {
+  font-weight: 700;
+  color: hsl(var(--price-color));
+  font-size: 1.25rem;
+}
+
+.price-sale {
+  color: hsl(var(--sale-color));
+}
+
+.price-original {
+  text-decoration: line-through;
+  color: hsl(var(--muted-foreground));
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-new {
+  background-color: hsl(var(--badge-new));
+  color: white;
+}
+
+.badge-sale {
+  background-color: hsl(var(--badge-sale));
+  color: white;
+}
+
+.badge-featured {
+  background-color: hsl(var(--badge-featured));
+  color: white;
+}
+
+/* Hero Section */
+.hero-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+}
+
+/* Cart Badge */
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: hsl(var(--secondary));
+  color: white;
+  border-radius: 9999px;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0 6px;
+}
+
+/* Container Utilities */
+.container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container-narrow {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

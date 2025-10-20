@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Syncro Commerce - Unified E-Commerce Management",
-  description: "Manage your AliExpress, Amazon, and Shopify stores from one powerful dashboard. Streamline product syncing, order fulfillment, and multi-platform operations.",
+  title: "Shopify - Premium Online Store",
+  description: "Shop the latest electronics, accessories, and more. Quality products at great prices with fast, free shipping.",
 };
 
 export default function RootLayout({
